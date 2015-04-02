@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  ### Added by Laura and Sarosh
+  root 'countries#index'
+  resources :countries 
+  resources :commodities 
+  resources :trades 
+  
+  get 'commodities/:id/delete' => 'commodities#delete', :as => :commodities_delete
+  
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

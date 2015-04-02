@@ -1,0 +1,15 @@
+<h1>Commodities#delete</h1>
+<p>Find me in app/views/commodities/delete.html.erb</p>
+<p>
+  <strong>Name:</strong>
+  <%= @commodity.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%=  @commodity.code %>
+</p>
+
+<%= link_to "Delete", commodities_delete_path(:id => @commodity.code) %> |
+<%= link_to 'Edit', edit_commodity_path(@commodity) %> |
+<%= link_to 'Back', commodity_path %>

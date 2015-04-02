@@ -1,0 +1,14 @@
+<% form_for(@commodities) do |f| %>
+
+  <div class="name">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="code">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

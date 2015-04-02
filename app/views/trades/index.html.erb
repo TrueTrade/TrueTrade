@@ -1,0 +1,12 @@
+<h1>Trades#index</h1>
+<!-- <p>Find me in app/views/trades/index.html.erb</p> -->
+
+<h1>Listing Trades</h1>
+
+<% @trades.each do |trade| %>
+<%= trade.year %> 
+<%= Country.find(trade.exporter_code).name %> 
+<%= (trade.importer_code) %> 
+<%= Commodity.find(trade.commodity_code).name%>
+<%= trade.volume %> <br>
+<% end %> 

@@ -1,0 +1,7 @@
+<h1>Commodities#show</h1>
+
+<%= @commodity.name %>
+<%= @commodity.code %> |
+<%= link_to "Delete", commodities_delete_path(:id => @commodity.code) %> |
+<%= link_to 'Edit', edit_commodity_path(@commodity) %> |
+<%= link_to 'Back', commodities_path %>
