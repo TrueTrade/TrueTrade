@@ -1,8 +1,43 @@
 <!-- <p>Find me in app/views/countries/index.html.erb</p> -->
-<h1>Listing Countries</h1>
+<!DOCTYPE html>
+<html>
 
-<% @countries.each do |country| %>
-<%=  country.name %>
-<%=  country.code%> <br>
-<% end %>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<table align = center style="width:auto" ><h1 align = center >Country List</h1>
+  <tr>
+    <th>Sl.</th>
+    <th>Name</th>
+    <th>Code</th>
+  </tr>
+    <% count = 0 %>
+    <% @countries.each do |country| %>
+  <tr>
+    <% count = count +1 %>
+    <td><%=  count %></td>
+    <td><%=  country.name %></td>
+    <td><%=  country.code%></td>
+  </tr>
+ <% end %>
+</table>
+  <%= high_chart("some_id", @chart) %>
+
+
+</body>
+</html>
+
+
 
