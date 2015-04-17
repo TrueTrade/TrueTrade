@@ -11,7 +11,7 @@ class CountriesController < ApplicationController
    @chart = LazyHighCharts::HighChart.new('graph') do |f|
   f.title(:text => "Population vs GDP For 5 Big Countries [2009]")
   f.xAxis(:categories => ["United States", "Japan", "China", "Germany", "France"])
-  f.series(:name => "GDP in Billions", :yAxis => 0, :data => [14119, 5068, 4985, 3339, 2656])
+  f.series(:name => "GDP in Billions", :yAxis => 0, :data => [1520, 5068, 4985, 3339, 2656])
   f.series(:name => "Population in Millions", :yAxis => 1, :data => [310, 127, 1340, 81, 65])
 
   f.yAxis [
@@ -66,3 +66,7 @@ def country_params
   params.require(:country.permit(:code, :name))
 end
 end
+
+#class DashboardController < ApplicationController   
+#	set_tab :dashboard 
+#end

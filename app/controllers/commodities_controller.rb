@@ -49,3 +49,7 @@ def commodity_params
   params.require(:commodity).permit(:code, :name)
 end
 end
+
+class DashboardController < ApplicationController   
+	set_tab :dashboard 
+end

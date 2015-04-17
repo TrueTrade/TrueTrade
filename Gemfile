@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'mysql2'
+gem 'devise'
 gem 'lazy_high_charts'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -38,3 +39,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#Use Bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+# Menu items 
+gem "tabs_on_rails"
