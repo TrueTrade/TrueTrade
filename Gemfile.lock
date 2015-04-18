@@ -51,6 +51,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.4.0)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     hash-deep-merge (0.1.1)
     hike (1.2.3)
     i18n (0.7.0)
@@ -70,7 +72,6 @@ GEM
     mime-types (1.25.1)
     minitest (5.5.1)
     multi_json (1.11.0)
-    mysql2 (0.3.18)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -141,10 +142,10 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)
   devise
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   lazy_high_charts
-  mysql2
   rails (= 4.1.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

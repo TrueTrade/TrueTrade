@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-gem 'mysql2'
-gem 'devise'
+#gem 'mysql2'
+gem "font-awesome-rails"
 gem 'lazy_high_charts'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -45,3 +45,4 @@ gem 'autoprefixer-rails'
 
 # Menu items 
 gem "tabs_on_rails"
+gem 'devise'
