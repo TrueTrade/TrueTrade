@@ -6,7 +6,7 @@
 <% @trades.each do |trade| %>
 <%= trade.year %> 
 <%= Country.find(trade.exporter_code).name %> 
-<%= (trade.importer_code) %> 
+<%= Country.find(trade.importer_code).name %> 
 <%= Commodity.find(trade.commodity_code).name%>
 <%= trade.volume %> <br>
 <% end %> 
