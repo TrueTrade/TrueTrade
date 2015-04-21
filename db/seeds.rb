@@ -6,20 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'csv'
-itemList = CSV.read("./CSV/ItemList.csv", :headers => true)
+
+
+itemList = CSV.read("/home/ahuja/Desktop/CSV/ItemList.csv", :headers => true)
 itemList.each do |item|
   Commodity.create( name: item["Name"], code: item["Code"] )
 end
 
 puts "Commodities Done"
 
-countryList = CSV.read("./CSV/CountryList.csv", :headers => true)
+countryList = CSV.read("/home/ahuja/Desktop/CSV/CountryList.csv", :headers => true)
 countryList.each do |country|
   Country.create( name: country["Name"], code: country["Code"])
 end
 puts "Countries Done"
 
-fileList = Dir.entries("./CSV")
+fileList = Dir.entries("/home/ahuja/Desktop/CSV")
 fileList.delete("..")
 fileList.delete(".")
 fileList.delete("CountryList.csv")
@@ -28,14 +30,17 @@ fileList = fileList.sort
 fileCount = fileList.size
 doneCount = 1
 fileList.each do |file|
-  trades = CSV.read("./CSV/"+file, :headers => true)
+  trades = CSV.read("/home/ahuja/Desktop/CSV/"+file, :headers => true)
+columns = [ :year, :exporter_code, :importer_code, :commodity_code, :volume ]
   if trades.length() > 1
+    values = []
     puts "Starting file " + file
     trades.each do |trade|
       if countryList["Code"].include?(trade["Reporter Code"]) && countryList["Code"].include?(trade["Partner Code"]) && trade["Trade Flow"] == "Export"
-        Trade.create( year: trade["Year"], exporter_code: trade["Reporter Code"], importer_code: trade["Partner Code"], commodity_code: trade["Commodity Code"],volume: trade["Trade Value (US$)"] )
+	values.push [trade["Year"],trade["Reporter Code"], trade["Partner Code"],trade["Commodity Code"],trade["Trade Value (US$)"]]
       end
     end
+Trade.import columns, values, :validate => false
    #puts "Finished file " + file
   else
     puts "Skipping file " + file 
@@ -44,5 +49,4 @@ fileList.each do |file|
   doneCount = doneCount + 1
 end
 puts "Done"
-
 

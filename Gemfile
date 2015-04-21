@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 #gem 'mysql2'
+gem "activerecord-import", ">= 0.2.0"
 gem "font-awesome-rails"
 gem 'lazy_high_charts'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
