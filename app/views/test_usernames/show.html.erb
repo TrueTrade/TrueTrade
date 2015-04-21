@@ -12,7 +12,8 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= @test_username.picture %>
+  <%# @test_username.picture %>
+  <%= image_tag(@test_username.picture_url, :width => 600) if @test_username.picture.present? %>
 </p>
 
 <%= link_to 'Edit', edit_test_username_path(@test_username) %> |

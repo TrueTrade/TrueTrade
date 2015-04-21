@@ -25,7 +25,8 @@ fileList.delete(".")
 fileList.delete("CountryList.csv")
 fileList.delete("ItemList.csv")
 fileList = fileList.sort
-
+fileCount = fileList.size
+doneCount = 1
 fileList.each do |file|
   trades = CSV.read("./CSV/"+file, :headers => true)
   if trades.length() > 1
@@ -39,6 +40,8 @@ fileList.each do |file|
   else
     puts "Skipping file " + file 
   end
+  puts "Finished " + doneCount.to_s + "/"+ fileCount.to_s + " files"
+  doneCount = doneCount + 1
 end
 puts "Done"
 
