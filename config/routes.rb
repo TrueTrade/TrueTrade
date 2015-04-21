@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  resources :test_usernames
+
+  devise_for :users
   ### Added by Laura and Sarosh
-  root 'countries#index'
+  root 'collage#index'
   resources :countries 
   resources :commodities 
   resources :trades 
+  resources :collage
   
   get 'commodities/:id/delete' => 'commodities#delete', :as => :commodities_delete
   

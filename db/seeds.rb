@@ -10,6 +10,7 @@ itemList = CSV.read("./CSV/ItemList.csv", :headers => true)
 itemList.each do |item|
   Commodity.create( name: item["Name"], code: item["Code"] )
 end
+
 puts "Commodities Done"
 
 countryList = CSV.read("./CSV/CountryList.csv", :headers => true)
@@ -22,7 +23,8 @@ fileList = Dir.entries("./CSV")
 fileList.delete("..")
 fileList.delete(".")
 fileList.delete("CountryList.csv")
-fileList.delete("ItemCodes.csv")
+fileList.delete("ItemList.csv")
+fileList = fileList.sort
 
 fileList.each do |file|
   trades = CSV.read("./CSV/"+file, :headers => true)
@@ -33,12 +35,11 @@ fileList.each do |file|
         Trade.create( year: trade["Year"], exporter_code: trade["Reporter Code"], importer_code: trade["Partner Code"], commodity_code: trade["Commodity Code"],volume: trade["Trade Value (US$)"] )
       end
     end
-    puts "Finished file " + file
+   #puts "Finished file " + file
   else
     puts "Skipping file " + file 
   end
 end
 puts "Done"
-#Trade_List.each do |year, exporter_code, importer_code, commodity_code,volume|
-#  
-#end
+
+

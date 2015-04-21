@@ -1,7 +1,7 @@
 <!-- START TOPBAR -->
         <div class='page-topbar '>
             <div class='logo-area'>
-
+hi
             </div>
             <div class='quick-area'>
                 <div class='pull-left'>
@@ -58,7 +58,7 @@
                                         <li class=" status-busy">
                                             <a href="javascript:;">
                                                 <div class="user-img">
-                                                    <img src="data/profile/avatar-3.png" alt="user-image" class="img-circle img-inline">
+                                                    <%= image_tag "rails.png",alt: "user-image", class: "img-circle img-inline" %>
                                                 </div>
                                                 <div>
                                                     <span class="name">
@@ -305,7 +305,7 @@
                     <ul class="info-menu right-links list-inline list-unstyled">
                         <li class="profile">
                             <a href="#" data-toggle="dropdown" class="toggle">
-                                <img src="data/profile/profile.png" alt="user-image" class="img-circle img-inline">
+                                <%= image_tag "rails.png",alt: "user-image", class: "img-circle img-inline" %>
                                 <span>Jason Bourne <i class="fa fa-angle-down"></i></span>
                             </a>
                             <ul class="dropdown-menu profile animated fadeIn">
@@ -322,7 +322,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#help">
+                                    <a href="help">
                                         <i class="fa fa-info"></i>
                                         Help
                                     </a>
@@ -335,12 +335,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="chat-toggle-wrapper">
-                            <a href="#" data-toggle="chatbar" class="toggle_chat">
-                                <i class="fa fa-comments"></i>
-                                <span class="badge badge-warning">9</span>
-                            </a>
-                        </li>
+                       
                     </ul>			
                 </div>		
             </div>
