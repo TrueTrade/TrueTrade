@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-#gem 'mysql2'
+gem 'mysql2'
 gem "activerecord-import", ">= 0.2.0"
 gem "font-awesome-rails"
 gem 'lazy_high_charts'

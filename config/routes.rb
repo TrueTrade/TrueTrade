@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :test_usernames
-  root :to => redirect('/test_usernames')  
+  #resources :test_usernames
+  #root :to => redirect('/test_usernames')  
   devise_for :users
   ### Added by Laura and Sarosh
-  #root 'collage#index'
+  root 'countries#index'
   resources :countries 
   resources :commodities 
   resources :trades 

@@ -16,5 +16,10 @@
   <%= image_tag(@test_username.picture_url, :width => 600) if @test_username.picture.present? %>
 </p>
 
+<p>
+  <strong>Previous Queries:</strong>
+  <%= @test_username.description %>
+</p>
+
 <%= link_to 'Edit', edit_test_username_path(@test_username) %> |
 <%= link_to 'Back', test_usernames_path %>
