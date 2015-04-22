@@ -40,7 +40,7 @@ Commodity_List = [
 ["31","Fertilisers"],
 ["32","Tanning or dyeing extracts; tannins and their derivatives; dyes, pigments and other colouring matter; paints and varnishes; putty and other mastics; inks"],
 ["33","Essential oils and resinoids; perfumery, cosmetic or toilet preparations"],
-["34","Soap, organic surfaceactive agents, washing preparations, lubricating preparations, artificial waxes, prepared waxes, polishing or scouring preparations, candles and similar articles, modelling pastes, Ã¢â‚¬Å“dental waxesÃ¢â‚¬Â and dental preparations with a basis of plaster"],
+["34","Soap, organic surfaceactive agents, washing preparations, lubricating preparations, artificial waxes, prepared waxes, polishing or scouring preparations, candles and similar articles"],
 ["35","Albuminoidal substances; modified starches; glues; enzymes"],
 ["36","Explosives; pyrotechnic products; matches; pyrophoric alloys; certain combustible preparations"],
 ["37","Photographic or cinematographic goods"],
