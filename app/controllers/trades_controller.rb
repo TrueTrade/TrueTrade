@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+  #before_action :authenticate_user! # Added by Laura for devise, to authenticate user 
   def new
   @trade = Trade.new
   end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   #resources :test_usernames
   #root :to => redirect('/test_usernames')  
   devise_for :users

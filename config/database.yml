@@ -10,9 +10,10 @@ development:
   encoding: utf8
   database: dev-db
   pool: 5
-  timeout: 5000
+  timeout: 50000
   password: hakunamatata
   strict: false
+  reconnect: true
 
 test:
   host: 127.0.0.1
@@ -20,9 +21,10 @@ test:
   encoding: utf8
   database: test-db
   pool: 5
-  timeout: 5000
+  timeout: 50000
   password: hakunamatata
   strict: false
+  reconnect: true
   
 production:
   host: 127.0.0.1
@@ -30,9 +32,10 @@ production:
   encoding: utf8
   database: prod-db
   pool: 5
-  timeout: 5000
+  timeout: 50000
   password: hakunamatata
   strict: false
+  reconnect: true
 
 
 
