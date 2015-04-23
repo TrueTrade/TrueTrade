@@ -13,11 +13,13 @@
           <tr>
             <% count = count +1 %>
             <td><%=  count %></td>
-            <td><%=  country.name %></td>
-            <td><%=  country.code%></td>
+            <td><%= link_to(country.name, country_path(country.code)) %></td>
+            <td><%=  country.code %></td>
           </tr>
          <% end %>
         </table>
-    
-      
+
+
+
+
 

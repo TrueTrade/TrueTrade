@@ -1,21 +1,16 @@
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 5px;
-    text-align: left;
-}
-</style>
-</head>
+
 <h1>Main Graphs</h1>
 <div id="content" class="col-xs-9">
           <%= high_chart("top5CommChart", @top5CommChart) %>
+ 
 </div>  
-<div id="content1" class="col-xs-9">
-          <%= high_chart("top5PartnerChart", @top5PartnerChart) %>
+<div id="content1" class="col-xs-9">    
 </div> 
+<!-- <div id="content2" class="col-xs-9">
+     
+</div> -->
 
   
+<div id="test-chart" data-topcommvol = "<%=raw @topCommVol %>" data-topcommname = "<%=raw @topCommName %>">
+<canvas height="450" id="canvas" width="600"></canvas>
+</div>

@@ -1,10 +1,32 @@
-<h1>Countries#show</h1>
-<!-- <p>Find me in app/views/countries/show.html.erb</p> -->
-<p><strong>Country Name
-<%= @country.name %>
-</p></strong>
 
-<p><strong>Country Continent
-<%= @country.continent %>
-</p></strong>
+<table class="table table-bordered" style="width: auto;" align = center>
+  
+  <% if params[:details] == 'partner' %>
+  
+  <h1> <%= params[:details] %> </h1>
+  <% else %>
+  <h1 align = center > <%= @country.name %> details graph</h1>
+  <%= bar_chart @data, @options %>
+  
+  
+  <h1 align = center > <%= @country.name %> table</h1>
+          <tr>
+            <th>Sl.</th>
+            <th>Commodity</th>
+            <th>Export Volume</th>
+            <th>Import Volume</th>
+          </tr>
+            <% count = 0 %>
+  <% @displayTableValues.each do |commodity_row|%>
+        
+          <tr>
+            <% count = count +1 %>
+            <td><%=  count %></td>
+            <td><%= commodity_row[0] %></td>
+            <td><%= commodity_row[1] %></td>
+            <td><%= commodity_row[2] %></td>
+          </tr>
+         <% end %>
+        </table>
+  <% end %>
 

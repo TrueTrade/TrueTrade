@@ -11,9 +11,9 @@
 <% @trades.each do |trade| %>
 <tr>
 <td><%= trade.year %> </td>
-<td><%= Country.find(trade.exporter_code).name %> </td>
-<td><%= Country.find(trade.importer_code).name %> </td>
-<td><%= Commodity.find(trade.commodity_code).name.truncate(50, separator: /\s/)%></td>
+<td><%= link_to(Country.find(trade.exporter_code).name, country_path(trade.exporter_code)) %> </td>
+<td><%= link_to(Country.find(trade.importer_code).name, country_path(trade.importer_code)) %> </td>
+<td><%= link_to(Commodity.find(trade.commodity_code).name.truncate(80, separator: /\s/), commodity_path(trade.commodity_code)) %></td>
 <td><%= trade.volume %></td>
 </tr>
 <% end %> 

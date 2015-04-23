@@ -9,7 +9,13 @@
 <!-- Strart :Add all sitewide styleshteet/js tags after this --> 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :highcharts %>
+  <%= javascript_include_tag :highstock %>
   <%= csrf_meta_tags %>
+  <!--
+  <script src="https://dl.dropboxusercontent.com/u/17718036/plugins/chartjs-chart/Chart.min.js" type="text/javascript"></script>
+  <script src="https://dl.dropboxusercontent.com/u/17718036/plugins/chartjs-chart/chart-chartjs.js" type="text/javascript"></script>
+  -->
 
 <!-- End :Add all sitewide styleshteet/js tags before this --> 
 </head>
