@@ -1,14 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <!-- Added to view admins -->
-<div><%= f.label :username %><br /> <%= f.text_field :username %></div>
+<h2 class="new_user-heading" align="center">Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email %></br>
+    <%= f.email_field :email, autofocus: true, class:"form-control" %></br>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -16,27 +14,79 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i></br>
+    <%= f.password_field :password, autocomplete: "off", class:"form-control" %></br>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :password_confirmation %></br>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %></br>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.label :current_password %> </br> <i>(we need your current password to confirm your changes)</i></br>
+    <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
   </div>
-
+</br>
   <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <%= f.submit "Update", class: "btn btn-lg btn-primary btn-block" %>
+  
 <% end %>
 
-<h3>Cancel my account</h3>
+<h2 class="new_user-heading" align="center">Unhappy?</h2>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-primary btn-block btn-warning" %>
+    </br>
+<%= button_to "Back", :back, class: "btn btn-lg btn-primary btn-block"  %>
+</div>
 
-<%= link_to "Back", :back %>
+<style type ="text/css">
+  body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.edit_user {
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.edit_user .edit_user-heading,
+.edit_user .checkbox {
+  margin-bottom: 10px;
+}
+.edit_user .checkbox {
+  font-weight: normal;
+}
+.edit_user .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.edit_user input[id="user_email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.edit_user input[id="user_password"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+  .edit_user input[id="user_password_conformation"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
+
+
+

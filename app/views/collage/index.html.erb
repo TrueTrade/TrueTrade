@@ -1,16 +1,10 @@
 
 <h1>Main Graphs</h1>
 <div id="content" class="col-xs-9">
-          <%= high_chart("top5CommChart", @top5CommChart) %>
- 
+  <%= doughnut_chart @data_doughnut, @options_doughnut %>
+  <%= polar_area_chart @data_polar, @options_polar %>
+
 </div>  
-<div id="content1" class="col-xs-9">    
-</div> 
-<!-- <div id="content2" class="col-xs-9">
-     
-</div> -->
+
 
   
-<div id="test-chart" data-topcommvol = "<%=raw @topCommVol %>" data-topcommname = "<%=raw @topCommName %>">
-<canvas height="450" id="canvas" width="600"></canvas>
-</div>

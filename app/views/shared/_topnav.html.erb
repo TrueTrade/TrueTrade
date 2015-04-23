@@ -19,9 +19,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <% if user_signed_in? %>  
-            <li><%= link_to('Countries', controller: "countries") %></li>
-            <li><%= link_to('Commodities', controller: "commodities") %></li>
-            <li><%= link_to('Trades', controller: "trades") %></li>
+            <li><%= link_to('Countries', countries_path) %></li>
+            <li><%= link_to('Commodities', commodities_path) %></li>
+            <li><%= link_to('Trades', trades_path) %></li>
             <% end %>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>

@@ -5,3 +5,8 @@
 <%= link_to "Delete", commodities_delete_path(:id => @commodity.code) %> |
 <%= link_to 'Edit', edit_commodity_path(@commodity) %> |
 <%= link_to 'Back', commodities_path %>
+
+
+ <h1 align = center > <%= @commodity.name %> details graph</h1>
+<%= line_chart @data, @options %>
+  

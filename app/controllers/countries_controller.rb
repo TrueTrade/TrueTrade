@@ -13,7 +13,7 @@ class CountriesController < ApplicationController
     if params[:details] == 'partner'
       #partner details show
     else
-      #commodity details show
+      #country details show
       @country = Country.find(params[:id])
       @countryCommoditiesIE = country_details
       @countryOnlyE = @countryCommoditiesIE[0]
@@ -37,7 +37,7 @@ class CountriesController < ApplicationController
 
         @displayTableValues << [Commodity.find(commodity_code).name, @exportValue, @importValue]
       end
-
+      @displayTableValues.sort! { |a,b| a[2] <=> b[2] }
       @data = {
         labels: @displayTableValues.map { |row| row[0].truncate(25, separator: /\s/)} ,
         datasets: [
@@ -109,10 +109,6 @@ end
   def country_details
     @country_commodities_exports = Trade.where(exporter_code: params[:id], year: 2012).group(:commodity_code).sum(:volume)
     @country_commodities_imports = Trade.where(importer_code: params[:id], year: 2012).group(:commodity_code).sum(:volume)
-#     @commodity_namesList = []
-#     @country_commodities.each do |commodity_code, sum_volume| 
-#       @commodity_namesList << Commodity.find(commodity_code).name
-#     end  
     return @country_commodities_exports, @country_commodities_imports
   end
   
