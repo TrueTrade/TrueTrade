@@ -5,12 +5,24 @@ Rails.application.routes.draw do
   devise_for :users
   ### Added by Laura and Sarosh
   root 'countries#index'
-  resources :countries 
+  resources :countries  
   resources :commodities 
   resources :trades 
   resources :collage
+  get 'countries/:id/year' => 'countries#year'
+  get 'countries/:id/range' => 'countries#range'
+  get 'countries/:id/commodity' => 'commodity#show'
   
+  get 'countries/:id/partner' => 'countries#partner'
+  get 'countries/:id/partner_year' => 'countries#partner_year'
+  get 'countries/:id/partner_range' => 'countries#partner_range'
   get 'commodities/:id/delete' => 'commodities#delete', :as => :commodities_delete
+  
+  get 'commodities/:id/year' => 'commodities#year'
+  get 'commodities/:id/country' => 'countries#range'
+  get 'commodities/:id/partner' => 'countries#partner'
+  get 'commodities/:id/partner_year' => 'countries#partner_year'
+  get 'commodities/:id/partner_range' => 'countries#partner_range'
   
 
   

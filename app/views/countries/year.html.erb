@@ -1,11 +1,9 @@
-<!--- country show -->
 
-<h1 align = center >Imports & exports of <%= @country.name %> for the year <%= @year %></h1>
-  
-  <%= bar_chart @data, @options %>
-  
+<h1 align = center >Imports & exports of <%= @country.name %> for the year <%= params[:year] %></h1>
+
+<p><%= bar_chart @CYdata, @CYoptions %></p>
   <table class="table table-bordered" style="width: auto;" align = center>
-  <h1 align = center > <%= @country.name %> table</h1>
+<h1 align = center > <%= @country.name %> table</h1>
           <tr>
             <th>Sl.</th>
             <th>Commodity</th>
@@ -13,7 +11,7 @@
             <th>Import Volume</th>
           </tr>
             <% count = 0 %>
-  <% @displayTableValues.each do |commodity_row|%>
+  <% @CYdisplayTableValues.each do |commodity_row|%>
         
           <tr>
             <% count = count +1 %>
@@ -24,5 +22,3 @@
           </tr>
          <% end %>
         </table>
-
-

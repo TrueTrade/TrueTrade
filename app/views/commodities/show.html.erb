@@ -1,12 +1,5 @@
-<h1>Commodities#show</h1>
-<p>The name of current tab is <%= current_tab %>.</p>
-<%= @commodity.name %>
-<%= @commodity.code %> |
-<%= link_to "Delete", commodities_delete_path(:id => @commodity.code) %> |
-<%= link_to 'Edit', edit_commodity_path(@commodity) %> |
-<%= link_to 'Back', commodities_path %>
-
-
- <h1 align = center > <%= @commodity.name %> details graph</h1>
+<!--- commodity show -->
+<h1 align = center > <%= @commodity.name %> details for <%= Country.find(@country_code).name %> between <%= @start_year %> and <%= @end_year %></h1>
+<div class="text-center"> <%= link_to 'Back', commodities_path, class:"btn btn-danger"%> </div>
 <%= line_chart @data, @options %>
   

@@ -21,4 +21,5 @@
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
 //= require Chart
+//= require d3
 //= require_tree .                                                       

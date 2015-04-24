@@ -1,14 +1,64 @@
 <%= form_for(@commodity) do |f| %>
-
   <div class="name">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name , class: "sr-only" %><br>
+    <%= f.text_field :name, class:"form-control", placeholder: "Commodity name" %>
   </div>
   <div class="code">
-    <%= f.label :code %>
-    <%= f.text_field :code %>
+    <%= f.label :code , class: "sr-only"%>
+    <%= f.text_field :code,  class:"form-control", placeholder: "Commodity code" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+
+
+  
+
+
+
+
+
+<style type ="text/css">
+  body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.new_commodity {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.new_commodity .new_commodity-heading,
+.new_commodity .checkbox {
+  margin-bottom: 10px;
+}
+.new_commodity .checkbox {
+  font-weight: normal;
+}
+.new_commodity .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.new_commodity input[id="commodity_name"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.new_commodity input[id="commodity_code"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>

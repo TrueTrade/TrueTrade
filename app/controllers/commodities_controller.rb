@@ -9,19 +9,16 @@ class CommoditiesController < ApplicationController
 
   def show
     @commodity = Commodity.find(params[:id])
- 
-    @commoditiesIE = commodity_details
-    @commodityOnlyE = @commoditiesIE[0]
-    @commodityOnlyI = @commoditiesIE[1]
-  
+    commodity_details_OCY1Y2
+    
     @displayTableExports = []
-    @commodityOnlyE.each do |year, volume|
+    @commodity_exports.each do |year, volume|
       @displayTableExports << [year , volume]
     end
     
     @displayTableImports = []
-    @commodityOnlyI.each do |year, volume|
-      @displayTableImports << [year , volume]
+    @commodity_imports.each do |year, volume|
+    @displayTableImports << [year , volume]
     end
     
    
@@ -54,6 +51,96 @@ class CommoditiesController < ApplicationController
     
   end
 
+  def year
+    @commodity = Commodity.find(params[:id])
+    commodity_details_OY
+    
+#*******************************
+#     Top 5 exporter countries chart
+#*******************************
+    @topCountryVol = @top5ExportersHash.values
+    @topCountryName = @EcountriesNameList
+  
+    @data_doughnutE =[
+    {
+        value: @topCountryVol[0],
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: @topCountryName[0]
+    },
+    {
+        value: @topCountryVol[1],
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: @topCountryName[1]
+    },
+    {
+        value: @topCountryVol[2],
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: @topCountryName[2]
+    },
+        {
+        value: @topCountryVol[3],
+        color: "#46BFBD",
+        highlight: "#A9ADAF",
+        label: @topCountryName[3]
+    },
+    {
+        value: @topCountryVol[4],
+        color: "#FDB45C",
+        highlight: "#0099FF",
+        label: @topCountryName[4]
+    }
+    ]
+    @options_doughnutE = {width: 400, height: 400} 
+    
+    
+    
+    
+#*******************************
+    #     Top 5 importers countries chart
+#*******************************
+    
+    @topCountryVolI = @top5ImportersHash.values
+    @topCountryNameI = @IcountriesNameList
+  
+    @data_doughnutI =[
+    {
+        value: @topCountryVolI[0],
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: @topCountryNameI[0]
+    },
+    {
+        value: @topCountryVolI[1],
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: @topCountryNameI[1]
+    },
+    {
+        value: @topCountryVolI[2],
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: @topCountryNameI[2]
+    },
+        {
+        value: @topCountryVolI[3],
+        color: "#46BFBD",
+        highlight: "#A9ADAF",
+        label: @topCountryNameI[3]
+    },
+    {
+        value: @topCountryVolI[4],
+        color: "#FDB45C",
+        highlight: "#0099FF",
+        label: @topCountryNameI[4]
+    }
+    ]
+    @options_doughnutI = {width: 400, height: 400} 
+    
+  end 
+  
   def edit
     @commodity = Commodity.find(params[:id])
   end
@@ -93,11 +180,66 @@ class CommoditiesController < ApplicationController
   end
   
   private 
-  def commodity_details
+  def commodity_details_O
+       @trade_commodity_ALL = Trade.where(commodity_code: params[:id]).group(:year).sum(:volume)
+  end
+  
+  private
+  def commodity_details_OY
+    @trade_countriesE = Trade.where(commodity_code: params[:id]).group(:exporter_code).sum(:volume)
+    @trade_countriesI = Trade.where(commodity_code: params[:id]).group(:importer_code).sum(:volume)
+    @ECountries_list = {}
+    @trade_countriesE.each do |exporter_code, sum_volume|
+      @ECountries_list[exporter_code] = sum_volume
+    end
+    @ECountries_list_sorted= @ECountries_list.sort_by{ |exporter_code, sum_volume| sum_volume }.reverse   
+    @top5ExportersArray = @ECountries_list_sorted.first 5
+    @top5ExportersHash = Hash[*@top5ExportersArray.flatten]
+    @top5ExportersHashKeys = @top5ExportersHash.keys
+    @EcountriesNameList =[]
+    @top5ExportersHashKeys.each do |country_code|
+      @EcountriesNameList << Country.find(country_code).name
+    end
+
+    @ICountries_list={}
+     @trade_countriesI.each do |importer_code, sum_volume|
+      @ICountries_list[importer_code] = sum_volume
+    end 
+    @ICountries_list_sorted= @ICountries_list.sort_by{ |importer_code, sum_volume| sum_volume }.reverse
+    @top5ImportersArray = @ICountries_list_sorted.first 5
+    @top5ImportersHash = Hash[*@top5ImportersArray.flatten]
+    @top5ImportersHashKeys = @top5ImportersHash.keys
+    @IcountriesNameList =[]
+    @top5ImportersHashKeys.each do |country_code|
+      @IcountriesNameList << Country.find(country_code).name
+    end
+  end
+
+  private 
+  def commodity_details_OC
+    @commodityExports_country = Trade.where(commodity_code: params[:id], exporter_code: params[:exporter_code]).group(:year).sum(:volume)
+    @commodityImports_country = Trade.where(commodity_code: params[:id], importer_code: params[:importer_code]).group(:year).sum(:volume)
+  end
+  
+  private 
+  def commodity_details_OCY
+    @commodityExports_OCY = Trade.where(commodity_code: params[:id], exporter_code: params[:country_code], year: params[:year]).group(:year).sum(:volume)
+    @commodityImports_OCY = Trade.where(commodity_code: params[:id], importer_code: params[:country_code], year: params[:year]).group(:year).sum(:volume)
+  end
+  
+  
+  private 
+  def commodity_details_OC1C2
+    @commodityExports_OC1C2 = Trade.where(commodity_code: params[:id], exporter_code: params[:exporter_code], importer_code: params[:importer_code]).group(:year).sum(:volume)
+    @commodityImports_OC1C2 = Trade.where(commodity_code: params[:id], importer_code: params[:exporter_code],  exporter_code: params[:importer_code]).group(:year).sum(:volume)
+  end
+  
+  private 
+  def commodity_details_OCY1Y2
     if params[:country_code] == nil
       @country_code = 842
     else 
-      @country_code = params[:id]
+      @country_code = params[:country_code]
     end
     
     if params[:start_year] == nil
@@ -107,7 +249,7 @@ class CommoditiesController < ApplicationController
     end
     
     if params[:end_year] == nil
-      @end_year = 2012    
+      @end_year = 2014    
     else
       @end_year = params[:end_year]  
     end
@@ -120,8 +262,7 @@ class CommoditiesController < ApplicationController
     
     @commodity_exports = Trade.where(exporter_code: @country_code, year: @start_year..@end_year, commodity_code: @commodity_code).group(:year).sum(:volume)
     @commodity_imports = Trade.where(importer_code: @country_code, year: @start_year..@end_year, commodity_code: @commodity_code).group(:year).sum(:volume)
-   
-    return @commodity_exports, @commodity_imports
+  
   end
   
   

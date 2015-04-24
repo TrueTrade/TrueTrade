@@ -1,0 +1,14 @@
+<!--Commodity year -->
+
+<div class="container">
+  <div class="row">
+    <div id="content" class="col-xs-6">
+      <h2>Top five Exporters of <%=@commodity.name %> </h2>
+         <%= doughnut_chart @data_doughnutE, @options_doughnutE %>
+    </div>
+    <div id="content" class="col-xs-6">
+      <h2>Top five Importers of <%=@commodity.name %> </h2>
+          <%= doughnut_chart @data_doughnutI, @options_doughnutI %>
+    </div> 
+  </div>
+</div>

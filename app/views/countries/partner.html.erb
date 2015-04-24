@@ -1,0 +1,4 @@
+<!-- Country partner -->
+
+<h1 align = "center"> Trade between <%= @country.name %> and <%= Country.find(params[:partner_code]).name %> </h1> 
+<p><%= line_chart @CCdata, @CCoptions %></p>
