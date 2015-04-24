@@ -1,0 +1,11 @@
+<!--Commodity year -->
+
+<div class="container">
+  <div class="row">
+    <div id="content" class="col-xs-6">
+      <h2>Commodity transaction between <%= Country.find(params[:exporter_code]).name %> and   <%=Country.find(params[:importer_code]).name%> for <%= @commodity.name %> </h2>
+      <%= radar_chart @data_oc1c2, @options_oc1c2 %>
+    </div>
+   
+  </div>
+</div>

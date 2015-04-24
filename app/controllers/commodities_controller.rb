@@ -27,27 +27,27 @@ class CommoditiesController < ApplicationController
       datasets: [
         {
           label: "My First dataset",
-          fillColor: "rgba(220,220,220,0.2)",
-          strokeColor: "rgba(220,220,220,1)",
-          pointColor: "rgba(220,220,220,1)",
+          fillColor: "rgba(31,181,172,0.2)",
+          strokeColor: "rgba(31,181,172,1)",
+          pointColor: "rgba(31,181,172,1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(220,220,220,1)",
+          pointHighlightStroke: "rgba(31,181,172,1)",
           data: @displayTableExports.map { |row| row[1]/10000}
           },
         {
           label: "My Second dataset",
-          fillColor: "rgba(151,187,205,0.2)",
-          strokeColor: "rgba(151,187,205,1)",
-          pointColor: "rgba(151,187,205,1)",
+          fillColor: "rgba(250,133,100,0.2)",
+          strokeColor: "rgba(250,133,100,1)",
+          pointColor: "rgba(250,133,100,1)",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(151,187,205,1)",
+          pointHighlightStroke: "rgba(250,133,100,1)",
           data: @displayTableImports.map { |row| row[1]/10000}
           }
         ]
       }
-    @options = {width: 1200, height: 1200}
+    @options = {width: 1100, height: 500}
     
   end
 
@@ -141,6 +141,42 @@ class CommoditiesController < ApplicationController
     
   end 
   
+  def partner
+    @commodity = Commodity.find(params[:id])
+    commodity_details_OC1C2
+    
+    @data_oc1c2 = {
+      labels: @commodityExports_OC1C2.keys,
+      datasets: [
+        {
+          label: "My First dataset",
+          fillColor: "rgba(31,181,172,0.2)",
+          strokeColor: "rgba(31,181,172,1)",
+          pointColor: "rgba(31,181,172,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(31,181,172,1)",
+          data: @commodityExports_OC1C2.values}
+          },
+        {
+          label: "My Second dataset",
+          fillColor: "rgba(250,133,100,0.2)",
+          strokeColor: "rgba(250,133,100,1)",
+          pointColor: "rgba(250,133,100,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(250,133,100,1)",
+          data: @commodityImports_OC1C2.values},
+          }
+        ]
+      }
+    @options_oc1c2 = {width: 600, height: 600, 
+      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"}
+    
+  end
+  
+  
+  
   def edit
     @commodity = Commodity.find(params[:id])
   end
@@ -223,8 +259,8 @@ class CommoditiesController < ApplicationController
   
   private 
   def commodity_details_OCY
-    @commodityExports_OCY = Trade.where(commodity_code: params[:id], exporter_code: params[:country_code], year: params[:year]).group(:year).sum(:volume)
-    @commodityImports_OCY = Trade.where(commodity_code: params[:id], importer_code: params[:country_code], year: params[:year]).group(:year).sum(:volume)
+    @commodityExports_OCY = Trade.where(commodity_code: params[:id], exporter_code: params[:country_code], year: params[:year]).group(:year).sum(:volume).first 5
+    @commodityImports_OCY = Trade.where(commodity_code: params[:id], importer_code: params[:country_code], year: params[:year]).group(:year).sum(:volume).first 5
   end
   
   

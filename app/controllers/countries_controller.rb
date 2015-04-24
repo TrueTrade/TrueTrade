@@ -41,22 +41,22 @@ class CountriesController < ApplicationController
         datasets: [
           {
             label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            fillColor: "rgba(31,181,172,0.2)",
+            strokeColor: "rgba(31,181,172,1)",
+            pointColor: "rgba(31,181,172,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            pointHighlightStroke: "rgba(31,181,172,1)",
             data: @displayTableValues.map { |row| row[1]/10000}
             },
           {
             label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
+            fillColor: "rgba(250,133,100,0.2)",
+            strokeColor: "rgba(250,133,100,1)",
+            pointColor: "rgba(250,133,100,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(250,133,100,1)",
             data: @displayTableValues.map { |row| row[2]/10000}
             }
           ]
@@ -96,27 +96,27 @@ class CountriesController < ApplicationController
         datasets: [
           {
             label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            fillColor: "rgba(31,181,172,0.2)",
+            strokeColor: "rgba(31,181,172,1)",
+            pointColor: "rgba(31,181,172,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            pointHighlightStroke: "rgba(31,181,172,1)",
             data: @CYdisplayTableValues.map { |row| row[1]/10000}
             },
           {
             label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
+            fillColor: "rgba(250,133,100,0.2)",
+            strokeColor: "rgba(250,133,100,1)",
+            pointColor: "rgba(250,133,100,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(250,133,100,1)",
             data: @CYdisplayTableValues.map { |row| row[2]/10000}
             }
           ]
         }
-      @CYoptions = {width: 1200, height: 1200}  
+      @CYoptions = {width: 1100, height: 500}  
   end
   
   def range
@@ -149,27 +149,27 @@ class CountriesController < ApplicationController
         datasets: [
           {
             label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            fillColor: "rgba(31,181,172,0.2)",
+            strokeColor: "rgba(31,181,172,1)",
+            pointColor: "rgba(31,181,172,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            pointHighlightStroke: "rgba(31,181,172,1)",
             data: @CCdisplayTableValues.map { |row| row[1]/10000}
             },
           {
             label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
+            fillColor: "rgba(250,133,100,0.2)",
+            strokeColor: "rgba(250,133,100,1)",
+            pointColor: "rgba(250,133,100,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(250,133,100,1)",
             data: @CCdisplayTableValues.map { |row| row[2]/10000}
             }
           ]
         }
-      @CYYoptions = {width: 1200, height: 1200}  
+      @CYYoptions = {width: 1100, height: 500}  
   end
   
   def partner
@@ -202,27 +202,27 @@ class CountriesController < ApplicationController
         datasets: [
           {
             label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            fillColor: "rgba(31,181,172,0.2)",
+            strokeColor: "rgba(31,181,172,1)",
+            pointColor: "rgba(31,181,172,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            pointHighlightStroke: "rgba(31,181,172,1)",
             data: @CCdisplayTableValues.map { |row| row[1]/10000}
             },
           {
             label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
+            fillColor: "rgba(250,133,100,0.2)",
+            strokeColor: "rgba(250,133,100,1)",
+            pointColor: "rgba(250,133,100,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(250,133,100,1)",
             data: @CCdisplayTableValues.map { |row| row[2]/10000}
             }
           ]
         }
-      @CCoptions = {width: 500, height: 1100}  
+      @CCoptions = {width: 1100, height: 500}  
     
   end
   

@@ -92,6 +92,9 @@ class CollageController < ApplicationController
 #        f.chart({:defaultSeriesType=>"column"})
 #     end
     
+    end
+  
+  def home
     
   end
   

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #root :to => redirect('/test_usernames')  
   devise_for :users
   ### Added by Laura and Sarosh
-  root 'countries#index'
+  root 'collage#home'
   resources :countries  
   resources :commodities 
   resources :trades 
@@ -19,10 +19,9 @@ Rails.application.routes.draw do
   get 'commodities/:id/delete' => 'commodities#delete', :as => :commodities_delete
   
   get 'commodities/:id/year' => 'commodities#year'
-  get 'commodities/:id/country' => 'countries#range'
-  get 'commodities/:id/partner' => 'countries#partner'
-  get 'commodities/:id/partner_year' => 'countries#partner_year'
-  get 'commodities/:id/partner_range' => 'countries#partner_range'
+  get 'commodities/:id/partner' => 'commodities#partner'
+  #get 'commodities/:id/partner_year' => 'countries#partner_year'
+  #get 'commodities/:id/partner_range' => 'countries#partner_range'
   
 
   
