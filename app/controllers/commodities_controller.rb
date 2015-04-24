@@ -156,7 +156,7 @@ class CommoditiesController < ApplicationController
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(31,181,172,1)",
-          data: @commodityExports_OC1C2.values}
+          data: @commodityExports_OC1C2.values
           },
         {
           label: "My Second dataset",
@@ -166,12 +166,11 @@ class CommoditiesController < ApplicationController
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(250,133,100,1)",
-          data: @commodityImports_OC1C2.values},
+          data: @commodityImports_OC1C2.values
           }
         ]
       }
-    @options_oc1c2 = {width: 600, height: 600, 
-      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"}
+    @options_oc1c2 = {width: 600, height: 600}
     
   end
   
