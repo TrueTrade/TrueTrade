@@ -4,7 +4,7 @@ gem 'chartjs-ror'
 gem "activerecord-import", ">= 0.2.0"
 gem "font-awesome-rails"
 gem 'lazy_high_charts'
-gem "highstocks-rails"  
+gem "highstock-rails"
 gem "d3-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
